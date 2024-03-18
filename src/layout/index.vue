@@ -40,7 +40,7 @@
     </n-drawer>
 
     <n-layout :inverted="inverted">
-      <n-layout-header :inverted="getHeaderInverted" :position="fixedHeader">
+      <n-layout-header :inverted="getHeaderInverted" :position="fixedHeader" class="layout-header">
         <PageHeader v-model:collapsed="collapsed" :inverted="inverted" />
       </n-layout-header>
 
@@ -78,6 +78,7 @@
 </template>
 
 <script lang="ts" setup>
+  import { NLayoutSider } from 'naive-ui';
   import { ref, unref, computed, onMounted } from 'vue';
   import { Logo } from './components/Logo';
   import { TabsView } from './components/TagsView';
@@ -204,23 +205,31 @@
     display: flex;
     flex-direction: row;
     flex: auto;
+    padding: 0.5rem;
+    background-color: #f5f7f9;
 
     &-default-background {
       background: #f5f7f9;
     }
 
     .layout-sider {
-      min-height: 100vh;
       box-shadow: 2px 0 8px 0 rgb(29 35 41 / 5%);
       position: relative;
       z-index: 13;
       transition: all 0.2s ease-in-out;
+      border-radius: 0.5rem;
     }
 
     .layout-sider-fix {
       position: fixed;
       top: 0;
       left: 0;
+    }
+
+    .layout-header {
+      margin-left: 0.2rem;
+      border-radius: 0.5rem;
+      // width: 90%;
     }
 
     .ant-layout {
@@ -236,7 +245,7 @@
 
     .layout-content {
       flex: auto;
-      min-height: 100vh;
+      // min-height: 100vh;
     }
 
     .n-layout-header.n-layout-header--absolute-positioned {

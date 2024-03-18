@@ -40,16 +40,22 @@
     const lightenStr = lighten(designStore.appTheme, 6);
     return {
       common: {
-        primaryColor: appTheme,
+        primaryColor: 'rgb(173, 136, 198)',
         primaryColorHover: lightenStr,
         primaryColorPressed: lightenStr,
         primaryColorSuppl: appTheme,
+        borderRadius: '0.5rem',
       },
       LoadingBar: {
         colorLoading: appTheme,
       },
+      Layout: {
+        // siderColor: "rgba(173, 136, 198, 100)",
+        // headerColor: "rgba(173, 136, 198, 100)",
+      },
     };
   });
+  // background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
 
   const getDarkTheme = computed(() => (designStore.darkTheme ? darkTheme : undefined));
 
